@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4761.robot.commands;
 
+import org.robockets.lib.InvalidInputException;
 import org.usfirst.frc.team4761.robot.OI;
 import org.usfirst.frc.team4761.robot.Robot;
 
@@ -25,7 +26,11 @@ public class DriveGo extends Command {
         translate = OI.joystick.getRawAxis(1);
         rotate = OI.joystick.getRawAxis(4);
 
-        Robot.drivetrain.driveArcade(translate, -rotate);
+        try {
+            Robot.drivetrain.driveArcade(translate, -rotate);
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
     }
 
     protected boolean isFinished() {
@@ -33,7 +38,11 @@ public class DriveGo extends Command {
     }
 
     protected void end() {
-        Robot.drivetrain.stop();
+        try {
+            Robot.drivetrain.stop();
+        } catch (InvalidInputException e) {
+            e.printStackTrace();
+        }
     }
 
     protected void interrupted() {
