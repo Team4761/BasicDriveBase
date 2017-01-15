@@ -2,6 +2,7 @@ package org.usfirst.frc.team4761.robot;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.usfirst.frc.team4761.robot.commands.*;
 import org.usfirst.frc.team4761.robot.subsystems.Drivetrain;
 

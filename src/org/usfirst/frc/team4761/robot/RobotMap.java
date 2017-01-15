@@ -13,6 +13,8 @@ public class RobotMap {
 	public static TalonSRX frontRight = new TalonSRX(2);
 	public static TalonSRX backLeft = new TalonSRX(1);
 	public static TalonSRX backRight = new TalonSRX(0);
+
+	public static SerialPort serial = new SerialPort(9600, SerialPort.Port.kUSB);
 	
 	public static RobotDrive robotDrive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 }

@@ -1,5 +1,6 @@
 package org.usfirst.frc.team4761.robot.subsystems;
 
+import edu.wpi.first.wpilibj.interfaces.Accelerometer;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.robockets.lib.AdaGyro;
 import org.robockets.lib.InvalidInputException;
@@ -36,15 +37,19 @@ public class Drivetrain extends Subsystem {
 
         //System.out.println(gyro.customRead(0x0F)[0] & 0xFF);
 
-        int x = ((int) gyro.readX()) & 0xFF;
-        int y = (int) gyro.readY();
-        int z = (int) gyro.readZ();
+        //int x = (int) gyro.readX();
+        //int y = (int) gyro.readY();
+        //int z = (int) gyro.readZ();
 
-        System.out.println("X: " + x + " Y: " + y + " Z: " + z);
+        System.out.println(RobotMap.serial.readString());
 
-        SmartDashboard.putNumber("GyroX", x);
-        SmartDashboard.putNumber("GyroY", y);
-        SmartDashboard.putNumber("GyroZ", z);
+       // x = x & 0xFF;
+        //System.out.println(x);
+        //System.out.println("X: " + x + " Y: " + y + " Z: " + z);
+
+        //SmartDashboard.putNumber("GyroX", x);
+        //SmartDashboard.putNumber("GyroY", y);
+        //SmartDashboard.putNumber("GyroZ", z);
 
     	//RobotMap.robotDrive.arcadeDrive(-leftValue, rightValue);
     }
