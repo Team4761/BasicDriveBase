@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.usfirst.frc.team4761.robot.commands.*;
 import org.usfirst.frc.team4761.robot.subsystems.Drivetrain;
 
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -21,6 +22,7 @@ public class Robot extends IterativeRobot {
 
 	public static OI oi;
 	public static Drivetrain drivetrain;
+	public static CameraServer cameraServer;
 
     Command autonomousCommand;
     Command driveGo;
@@ -34,6 +36,9 @@ public class Robot extends IterativeRobot {
 		drivetrain = new Drivetrain();
 		driveGo = new DriveGo();
 		oi = new OI();
+		cameraServer = CameraServer.getInstance();
+		cameraServer.startAutomaticCapture(); // From here, go to SmartDashboard > View > Add... > CameraServer Stream Viewer.
+		
     }
 	
 	/**
