@@ -13,6 +13,11 @@ public class RobotMap {
 	public static Victor frontRight = new Victor(2);
 	public static Victor backLeft = new Victor(1);
 	public static Victor backRight = new Victor(0);
-	
+
+	public static Victor shooterTop = new Victor(4);
+	public static Victor shooterBottom = new Victor(5);
+
+	public static Servo flapperServo = new Servo(0);
+
 	public static RobotDrive robotDrive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 }
