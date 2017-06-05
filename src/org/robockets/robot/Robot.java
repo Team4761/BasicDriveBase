@@ -1,8 +1,8 @@
-package org.usfirst.frc.team4761.robot;
+package org.robockets.robot;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
-import org.usfirst.frc.team4761.robot.commands.*;
-import org.usfirst.frc.team4761.robot.subsystems.Drivetrain;
+import org.robockets.robot.commands.DriveGo;
+import org.robockets.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;

@@ -1,7 +1,7 @@
-package org.usfirst.frc.team4761.robot.commands;
+package org.robockets.robot.commands;
 
-import org.usfirst.frc.team4761.robot.OI;
-import org.usfirst.frc.team4761.robot.Robot;
+import org.robockets.robot.OI;
+import org.robockets.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 

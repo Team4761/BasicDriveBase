@@ -1,4 +1,4 @@
-package org.usfirst.frc.team4761.robot;
+package org.robockets.robot;
 
 import edu.wpi.first.wpilibj.*;
 
@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.*;
  * floating around.
  */
 public class RobotMap {
-	public static TalonSRX frontLeft = new TalonSRX(3);
-	public static TalonSRX frontRight = new TalonSRX(2);
-	public static TalonSRX backLeft = new TalonSRX(1);
-	public static TalonSRX backRight = new TalonSRX(0);
+	public static Victor frontLeft = new Victor(3);
+	public static Victor frontRight = new Victor(2);
+	public static Victor backLeft = new Victor(1);
+	public static Victor backRight = new Victor(0);
 	
 	public static RobotDrive robotDrive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 }

@@ -1,7 +1,6 @@
-package org.usfirst.frc.team4761.robot.subsystems;
+package org.robockets.robot.subsystems;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import org.usfirst.frc.team4761.robot.RobotMap;
+import org.robockets.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 
