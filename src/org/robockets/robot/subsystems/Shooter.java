@@ -17,8 +17,8 @@ public class Shooter extends Subsystem {
 
 	}
 
-	public void setServo(double position) {
-		RobotMap.flapperServo.set(position); // This may change depending on the servo
+	public void setServo(double speed) {
+		RobotMap.flapperServo.set(speed); // This may change depending on the servo
 	}
 
 	public void setSpeed(double speed) {

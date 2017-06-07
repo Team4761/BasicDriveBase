@@ -14,11 +14,11 @@ public class ServoGo extends Command {
 	}
 
 	protected void initialize() {
-		Robot.shooter.setServo(45);
-		setTimeout(0.5);
+		setTimeout(0.1);
 	}
 
 	protected void execute() {
+		Robot.shooter.setServo(0.6);
 	}
 
 	protected boolean isFinished() {

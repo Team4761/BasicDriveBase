@@ -13,9 +13,9 @@ import org.robockets.robot.commands.SpinUp;
 public class OI {
 	public static Joystick joystick = new Joystick(0);
 
-	private static JoystickButton rightBumper = new JoystickButton(joystick, 5);
-	private static JoystickButton leftBumper = new JoystickButton(joystick, 4);
-	private static JoystickButton aButton = new JoystickButton(joystick, 0);
+	private static JoystickButton rightBumper = new JoystickButton(joystick, 6);
+	private static JoystickButton leftBumper = new JoystickButton(joystick, 5);
+	private static JoystickButton aButton = new JoystickButton(joystick, 1);
 
 	public OI() {
 		leftBumper.whileHeld(new SpinUp(0.5));

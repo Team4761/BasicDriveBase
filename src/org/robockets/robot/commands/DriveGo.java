@@ -4,6 +4,7 @@ import org.robockets.robot.OI;
 import org.robockets.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import org.robockets.robot.RobotMap;
 
 /**
  * @author Brian Shin
@@ -11,8 +12,6 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class DriveGo extends Command {
 
-    double translate;
-	double rotate;
 
     public DriveGo() {
         requires(Robot.drivetrain);
@@ -22,10 +21,13 @@ public class DriveGo extends Command {
     }
 
     protected void execute() {
-        translate = OI.joystick.getRawAxis(1);
-        rotate = OI.joystick.getRawAxis(4);
+        double y = OI.joystick.getRawAxis(1);
+        double x = OI.joystick.getRawAxis(0);
+        double rotate = OI.joystick.getRawAxis(4);
 
-        Robot.drivetrain.driveArcade(translate, -rotate);
+        Robot.drivetrain.driveMeccanum(x, y, rotate);
+
+        //Robot.drivetrain.driveArcade(translate, -rotate);
     }
 
     protected boolean isFinished() {

@@ -17,7 +17,7 @@ public class RobotMap {
 	public static Victor shooterTop = new Victor(4);
 	public static Victor shooterBottom = new Victor(5);
 
-	public static Servo flapperServo = new Servo(0);
+	public static Victor flapperServo = new Victor(6);
 
 	public static RobotDrive robotDrive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 }
