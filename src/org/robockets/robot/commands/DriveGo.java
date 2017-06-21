@@ -21,13 +21,15 @@ public class DriveGo extends Command {
     }
 
     protected void execute() {
-        double y = OI.joystick.getRawAxis(1);
-        double x = OI.joystick.getRawAxis(0);
+        /*double x = OI.joystick.getRawAxis(1);
+        double y = -OI.joystick.getRawAxis(0);
+        double rotate = OI.joystick.getRawAxis(4);*/
+        double translate = OI.joystick.getRawAxis(1);
         double rotate = OI.joystick.getRawAxis(4);
 
-        Robot.drivetrain.driveMeccanum(x, y, rotate);
+        //Robot.drivetrain.driveMeccanum(x, y, rotate);
 
-        //Robot.drivetrain.driveArcade(translate, -rotate);
+        Robot.drivetrain.driveArcade(translate, -rotate);
     }
 
     protected boolean isFinished() {

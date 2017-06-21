@@ -3,6 +3,7 @@ package org.robockets.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import org.robockets.robot.commands.ServoGo;
+import org.robockets.robot.commands.ServooooGo;
 import org.robockets.robot.commands.Shoot;
 import org.robockets.robot.commands.SpinUp;
 
@@ -18,8 +19,10 @@ public class OI {
 	private static JoystickButton aButton = new JoystickButton(joystick, 1);
 
 	public OI() {
-		leftBumper.whileHeld(new SpinUp(0.5));
-		rightBumper.whenPressed(new ServoGo());
+		leftBumper.whileHeld(new SpinUp(1));
+		//rightBumper.whenPressed(new ServoGo());
+		//rightBumper.whenReleased(new ServoGo(-0.75, 0.06));
+		rightBumper.whenPressed(new ServooooGo());
 		aButton.whenPressed(new Shoot());
 	}
 }

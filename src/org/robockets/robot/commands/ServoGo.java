@@ -9,16 +9,24 @@ import org.robockets.robot.Robot;
  */
 public class ServoGo extends Command {
 
-	public ServoGo() {
+	double speed = 0;
+	double time = 0;
 
+	public ServoGo(double speed, double time) {
+		this.speed = speed;
+		this.time = time;
+	}
+
+	public ServoGo() {
+		this(0.75, 0.5);
 	}
 
 	protected void initialize() {
-		setTimeout(0.1);
+		setTimeout(time);
 	}
 
 	protected void execute() {
-		Robot.shooter.setServo(0.6);
+		Robot.shooter.setServo(speed);
 	}
 
 	protected boolean isFinished() {

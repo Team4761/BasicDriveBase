@@ -1,6 +1,7 @@
 package org.robockets.robot;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.robockets.robot.commands.DriveGo;
 import org.robockets.robot.subsystems.Drivetrain;
 
@@ -33,10 +34,14 @@ public class Robot extends IterativeRobot {
      * used for any initialization code.
      */
     public void robotInit() {
+    	NetworkTable.flush();
+
 		drivetrain = new Drivetrain();
 	    shooter = new Shooter();
 		driveGo = new DriveGo();
 		oi = new OI();
+
+		SmartDashboard.putNumber("Driving Speed", Drivetrain.DEFAULT_SPEED);
     }
 	
 	/**

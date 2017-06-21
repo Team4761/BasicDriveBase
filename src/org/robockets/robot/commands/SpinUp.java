@@ -10,24 +10,32 @@ import org.robockets.robot.Robot;
 public class SpinUp extends Command {
 
 	private double speed = 0;
+	private double timeout = 0;
+
+	private boolean isTimed = false;
+
+	public SpinUp(double speed, double timeout) {
+		this.speed = speed;
+		this.timeout = timeout;
+		isTimed = true;
+	}
 
 	public SpinUp(double speed) {
 		this.speed = speed;
 	}
 
-	public SpinUp() {
-		this(1);
-	}
-
 	protected void initialize() {
+		if (isTimed) {
+			setTimeout(timeout);
+		}
 	}
 
 	protected void execute() {
-		Robot.shooter.setSpeed(speed);
+		Robot.shooter.setSpeed(-speed);
 	}
 
 	protected boolean isFinished() {
-		return false;
+		return isTimed && isTimedOut();
 	}
 
 	protected void end() {
