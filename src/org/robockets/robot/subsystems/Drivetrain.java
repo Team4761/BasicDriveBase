@@ -18,6 +18,18 @@ public class Drivetrain extends Subsystem {
     public void driveArcade(double leftValue, double rightValue) {
     	RobotMap.robotDrive.arcadeDrive(-leftValue, rightValue);
     }
+
+    public void driveTank(double leftValue, double rightValue) {
+    	RobotMap.robotDrive.tankDrive(leftValue, rightValue);
+	}
+
+	/**
+	 * Get the distance the distance sensor returns
+	 * @return The distance in centimeters
+	 */
+	public double getDistance() {
+    	return RobotMap.distanceSensor.getVoltage(); // Need some math here
+	}
     
     public void stop() {
     	driveArcade(0, 0);

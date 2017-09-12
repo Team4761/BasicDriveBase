@@ -2,6 +2,8 @@ package org.robockets.robot;
 
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.robockets.robot.commands.DriveGo;
+import org.robockets.robot.commands.GoBack;
+import org.robockets.robot.commands.GoForward;
 import org.robockets.robot.subsystems.Drivetrain;
 
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -24,6 +26,10 @@ public class Robot extends IterativeRobot {
 
     Command autonomousCommand;
     Command driveGo;
+
+    Command goBack;
+    Command goForward;
+
     SendableChooser chooser;
 
     /**
@@ -33,6 +39,10 @@ public class Robot extends IterativeRobot {
     public void robotInit() {
 		drivetrain = new Drivetrain();
 		driveGo = new DriveGo();
+
+		goBack = new GoBack(); // Do me a favor...
+		goForward = new GoForward();
+
 		oi = new OI();
     }
 	
@@ -59,7 +69,7 @@ public class Robot extends IterativeRobot {
 	 * or additional comparisons to the switch structure below with additional strings & commands.
 	 */
     public void autonomousInit() {
-       
+
     }
 
     /**
@@ -67,6 +77,15 @@ public class Robot extends IterativeRobot {
      */
     public void autonomousPeriodic() {
         Scheduler.getInstance().run();
+
+        // The jank is real...
+        if (Robot.drivetrain.getDistance() <= 5 && !goBack.isRunning()) {
+        	goForward.cancel();
+        	goForward = new GoForward();
+			goBack.start();
+		} else if (!goBack.isRunning() && !goForward.isRunning()) {
+			goForward.start();
+		}
     }
 
     public void teleopInit() {
