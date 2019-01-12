@@ -1,5 +1,7 @@
 package org.robockets.robot;
 
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
 import org.robockets.robot.commands.DriveGo;
 import org.robockets.robot.subsystems.Drivetrain;
@@ -34,6 +36,13 @@ public class Robot extends IterativeRobot {
 		drivetrain = new Drivetrain();
 		driveGo = new DriveGo();
 		oi = new OI();
+
+	    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+
+	    LiveWindow.add(RobotMap.frontLeft);
+	    LiveWindow.add(RobotMap.backLeft);
+	    LiveWindow.add(RobotMap.frontRight);
+	    LiveWindow.add(RobotMap.backRight);
     }
 	
 	/**

@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.*;
  * floating around.
  */
 public class RobotMap {
-	public static Victor frontLeft = new Victor(3);
-	public static Victor frontRight = new Victor(2);
-	public static Victor backLeft = new Victor(1);
-	public static Victor backRight = new Victor(0);
+	public static Spark frontLeft = new Spark(0);
+	public static Spark backLeft = new Spark(1);
+	public static Spark frontRight = new Spark(2);
+	public static Spark backRight = new Spark(3);
 	
 	public static RobotDrive robotDrive = new RobotDrive(frontLeft, backLeft, frontRight, backRight);
 }
