@@ -16,7 +16,8 @@ public class Drivetrain extends Subsystem {
     }
     
     public void driveArcade(double leftValue, double rightValue) {
-    	RobotMap.robotDrive.arcadeDrive(-leftValue, rightValue);
+    	RobotMap.robotDrive.arcadeDrive(leftValue, rightValue);
+	    //RobotMap.leftMotorController.set(leftValue);
     }
     
     public void stop() {

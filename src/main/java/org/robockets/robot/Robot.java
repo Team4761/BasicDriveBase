@@ -2,7 +2,10 @@ package org.robockets.robot;
 
 import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.PowerDistributionPanel;
+import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.robockets.robot.commands.DriveGo;
 import org.robockets.robot.subsystems.Drivetrain;
 
@@ -19,7 +22,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Robot extends IterativeRobot {
+public class Robot extends TimedRobot {
 
 	public static OI oi;
 	public static Drivetrain drivetrain;
@@ -37,12 +40,19 @@ public class Robot extends IterativeRobot {
 		driveGo = new DriveGo();
 		oi = new OI();
 
-	    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
+	    //UsbCamera camera = CameraServer.getInstance().startAutomaticCapture();
 
-	    LiveWindow.add(RobotMap.frontLeft);
-	    LiveWindow.add(RobotMap.backLeft);
-	    LiveWindow.add(RobotMap.frontRight);
-	    LiveWindow.add(RobotMap.backRight);
+	    //System.out.println(RobotMap.leftMotorController.get());
+	    /*LiveWindow.add(RobotMap.leftMotorController);
+	    LiveWindow.add(RobotMap.rightMotorController);*/
+	    LiveWindow.add(RobotMap.robotDrive);
+    }
+
+    public void robotPeriodic() {
+	    //System.out.println(RobotMap.leftMotorController.get());
+	    /*SmartDashboard.putNumber("Robot Voltage", RobotMap.pdp.getVoltage());
+	    SmartDashboard.putNumber("Motor 1 Current", RobotMap.pdp.getCurrent(14));
+	    SmartDashboard.putNumber("Motor 2 Current", RobotMap.pdp.getCurrent(15));*/
     }
 	
 	/**
@@ -51,11 +61,13 @@ public class Robot extends IterativeRobot {
 	 * the robot is disabled.
      */
     public void disabledInit(){
-    	
+	    /*LiveWindow.add(RobotMap.leftMotorController);
+	    LiveWindow.add(RobotMap.rightMotorController);
+	    LiveWindow.add(RobotMap.robotDrive);*/
     }
 	
 	public void disabledPeriodic() {
-		Scheduler.getInstance().run();
+		//Scheduler.getInstance().run();
 	}
 
 	/**
@@ -75,11 +87,11 @@ public class Robot extends IterativeRobot {
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-        Scheduler.getInstance().run();
+        //Scheduler.getInstance().run();
     }
 
     public void teleopInit() {
-		NetworkTable.flush();
+		//NetworkTable.flush();
     	driveGo.start();
     }
 
@@ -89,11 +101,16 @@ public class Robot extends IterativeRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
     }
-    
+
+    public void testInit() {
+	    LiveWindow.add(RobotMap.robotDrive);
+    }
+
     /**
      * This function is called periodically during test mode
      */
     public void testPeriodic() {
-        LiveWindow.run();
+    	LiveWindow.updateValues();
+    	Scheduler.getInstance().run();
     }
 }

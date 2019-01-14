@@ -22,8 +22,13 @@ public class DriveGo extends Command {
     }
 
     protected void execute() {
-        translate = OI.joystick.getRawAxis(1)*0.5;
-        rotate = OI.joystick.getRawAxis(4)*0.5;
+        translate = -OI.joystick.getRawAxis(1);
+        rotate = -OI.joystick.getRawAxis(4)*0.75;
+
+        if (OI.joystick.getRawButton(6)) {
+            translate*=0.65;
+            rotate*=0.5;
+        }
 
         Robot.drivetrain.driveArcade(translate, rotate);
     }
